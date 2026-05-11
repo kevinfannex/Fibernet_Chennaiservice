@@ -13,19 +13,22 @@ const Plans = () => {
       { name: 'Ultra', speed: '1', unit: 'Gbps', price: '2999', bestValue: true, features: ['Unlimited Data', 'Free Dual Band Router', 'Free Installation', 'All OTT Platforms', 'Mesh WiFi Included', 'VIP Support Line'] }
     ],
     quarterly: [
-      { name: 'Starter · 3M', speed: '75', unit: 'Mbps', price: '1650', note: 'save ₹75', features: ['Unlimited Data', 'Free Router + Installation', '24/7 Support'] },
-      { name: 'Standard · 3M', speed: '150', unit: 'Mbps', price: '2450', popular: true, note: 'save ₹85', features: ['Unlimited Data', 'Free Router + Installation', 'Amazon Prime', 'Priority Support'] },
-      { name: 'Ultra · 3M', speed: '1', unit: 'Gbps', price: '8499', bestValue: true, note: 'save ₹498', features: ['Unlimited Data', 'All OTT Platforms', 'Mesh WiFi', 'VIP Support'] }
+      { name: 'Starter Plus', speed: '75', unit: 'Mbps', price: '2035', note: 'Total for 3 Months (inc. GST)', features: ['Unlimited Data', 'Free Dual Band Router', 'Free Installation', '24/7 Support'] },
+      { name: 'Basic', speed: '150', unit: 'Mbps', price: '2991', popular: true, note: 'Total for 3 Months (inc. GST)', features: ['Unlimited Data', 'Free Dual Band Router', 'Free Installation', 'Amazon Prime Included'] },
+      { name: 'Strom', speed: '400', unit: 'Mbps', price: '4068', note: 'Total for 3 Months (inc. GST)', features: ['Unlimited Data', 'Free WiFi 6 Router', 'Free Installation', 'Netflix + Prime'] },
+      { name: 'Incredible', speed: '500', unit: 'Mbps', price: '7077', bestValue: true, note: 'Total for 3 Months (inc. GST)', features: ['Unlimited Data', 'Free WiFi 6 Router', 'Free Installation', 'All OTT Platforms'] }
     ],
     halfyearly: [
-      { name: 'Starter · 6M', speed: '75', unit: 'Mbps', price: '3250', note: 'save ₹200', features: ['Unlimited Data', 'Free Router + Installation', '24/7 Support'] },
-      { name: 'Standard · 6M', speed: '150', unit: 'Mbps', price: '4799', popular: true, note: 'save ₹271', features: ['Unlimited Data', 'Free Router + Installation', 'Amazon Prime', 'Priority Support'] },
-      { name: 'Ultra · 6M', speed: '1', unit: 'Gbps', price: '16499', bestValue: true, note: 'save ₹1,495', features: ['Unlimited Data', 'All OTT Platforms', 'Mesh WiFi', 'VIP Support'] }
+      { name: 'Basic', speed: '150', unit: 'Mbps', price: '5983', note: 'Total for 6 Months (inc. GST)', features: ['Unlimited Data', 'Free Dual Band Router', '1 Month Free', 'Priority Support'] },
+      { name: 'Strom', speed: '400', unit: 'Mbps', price: '8136', popular: true, note: 'Total for 6 Months (inc. GST)', features: ['Unlimited Data', 'Free WiFi 6 Router', '1 Month Free', 'Netflix Included'] },
+      { name: 'Incredible', speed: '500', unit: 'Mbps', price: '14154', note: 'Total for 6 Months (inc. GST)', features: ['Unlimited Data', 'Free WiFi 6 Router', '1 Month Free', 'All OTT Platforms'] },
+      { name: 'Giga', speed: '1', unit: 'Gbps', price: '23588', bestValue: true, note: 'Total for 6 Months (inc. GST)', features: ['Unlimited Data', 'Free Mesh Router', '1 Month Free', 'VIP Support'] }
     ],
     annual: [
-      { name: 'Starter · 12M', speed: '75', unit: 'Mbps', price: '5999', note: 'save ₹901', features: ['Unlimited Data', 'Free Router + Installation', '24/7 Support'] },
-      { name: 'Standard · 12M', speed: '150', unit: 'Mbps', price: '8999', popular: true, note: 'save ₹1,141', features: ['Unlimited Data', 'Free Router + Installation', 'Amazon Prime Full Year', 'Priority Support'] },
-      { name: 'Ultra · 12M', speed: '1', unit: 'Gbps', price: '29999', bestValue: true, note: 'save ₹5,989', features: ['Unlimited Data', 'All OTT Platforms', 'Mesh WiFi', 'VIP Support', 'Free Fire TV Stick'] }
+      { name: 'Basic', speed: '150', unit: 'Mbps', price: '11965', note: 'Total for 12 Months (inc. GST)', features: ['Unlimited Data', 'Free Router + 2 Months Free', 'Priority Support'] },
+      { name: 'Strom', speed: '400', unit: 'Mbps', price: '16272', popular: true, note: 'Total for 12 Months (inc. GST)', features: ['Unlimited Data', 'Free Router + 3 Months Free', 'All OTT Platforms'] },
+      { name: 'Incredible', speed: '500', unit: 'Mbps', price: '28308', note: 'Total for 12 Months (inc. GST)', features: ['Unlimited Data', 'Free Router + 3 Months Free', 'VIP Support'] },
+      { name: 'Giga', speed: '1', unit: 'Gbps', price: '47188', bestValue: true, note: 'Total for 12 Months (inc. GST)', features: ['Unlimited Data', 'Free Mesh Router + 2 Months Free', 'VIP Support'] }
     ]
   };
 
@@ -37,44 +40,53 @@ const Plans = () => {
         <p className="section-sub">All plans include unlimited data, free router & free installation. 18% GST extra.</p>
 
         <div className="plan-tabs">
-          {['monthly', 'quarterly', 'halfyearly', 'annual'].map((t) => (
-            <button 
-              key={t}
-              className={`plan-tab ${period === t ? 'active' : ''}`}
-              onClick={() => setPeriod(t)}
-            >
-              {t === 'monthly' ? 'Monthly' : t === 'quarterly' ? '3 Months' : t === 'halfyearly' ? '6 Months' : '12 Months'}
-            </button>
-          ))}
+          <button 
+            type="button"
+            className={`plan-tab ${period === 'monthly' ? 'active' : ''}`}
+            onClick={() => setPeriod('monthly')}
+          >
+            Monthly
+          </button>
+          <button 
+            type="button"
+            className={`plan-tab ${period === 'quarterly' ? 'active' : ''}`}
+            onClick={() => setPeriod('quarterly')}
+          >
+            3 Months
+          </button>
+          <button 
+            type="button"
+            className={`plan-tab ${period === 'halfyearly' ? 'active' : ''}`}
+            onClick={() => setPeriod('halfyearly')}
+          >
+            6 Months
+          </button>
+          <button 
+            type="button"
+            className={`plan-tab ${period === 'annual' ? 'active' : ''}`}
+            onClick={() => setPeriod('annual')}
+          >
+            12 Months
+          </button>
         </div>
 
         <div className="plans-grid">
-          <AnimatePresence mode="wait">
-            <motion.div 
-              key={period}
-              className="plan-content active"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3 }}
-              style={{ width: '100%' }}
-            >
-              {plansData[period].map((plan, i) => (
-                <div key={i} className={`plan-card ${plan.popular ? 'popular' : ''}`}>
-                  {plan.popular && <div className="badge-popular">🔥 Most Popular</div>}
-                  {plan.bestValue && <div className="badge-value">⭐ Best Value</div>}
-                  <div className="plan-name">{plan.name}</div>
-                  <div className="plan-speed">{plan.speed}<span> {plan.unit}</span></div>
-                  <div className="plan-price"><sub>₹</sub>{plan.price}</div>
-                  <div className="plan-price-note">{plan.note || 'per month + GST'}</div>
-                  <ul className="plan-features">
-                    {plan.features.map((f, fi) => <li key={fi}>{f}</li>)}
-                  </ul>
-                  <a href={`https://wa.me/918925505702?text=I%20want%20ACT%20${plan.speed}${plan.unit}%20plan%20(${period})`} className={`btn-plan ${plan.popular ? 'btn-plan-solid' : 'btn-plan-outline'}`}>Get This Plan</a>
-                </div>
-              ))}
-            </motion.div>
-          </AnimatePresence>
+          <div className="plan-content active" style={{ width: '100%' }}>
+            {plansData[period].map((plan, i) => (
+              <div key={i} className={`plan-card ${plan.popular ? 'popular' : ''}`}>
+                {plan.popular && <div className="badge-popular">🔥 Most Popular</div>}
+                {plan.bestValue && <div className="badge-value">⭐ Best Value</div>}
+                <div className="plan-name">{plan.name}</div>
+                <div className="plan-speed">{plan.speed}<span> {plan.unit}</span></div>
+                <div className="plan-price"><sub>₹</sub>{plan.price}</div>
+                <div className="plan-price-note">{plan.note || 'per month + GST'}</div>
+                <ul className="plan-features">
+                  {plan.features.map((f, fi) => <li key={fi}>{f}</li>)}
+                </ul>
+                <a href={`https://wa.me/918925505702?text=I%20want%20ACT%20${plan.speed}${plan.unit}%20plan%20(${period})`} className={`btn-plan ${plan.popular ? 'btn-plan-solid' : 'btn-plan-outline'}`}>Get This Plan</a>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

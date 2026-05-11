@@ -19,6 +19,8 @@
 html { scroll-behavior: smooth; }
 
 body {
+  margin: 0;
+  width: 100%;
   font-family: 'Barlow', sans-serif;
   color: var(--text);
   background: var(--white);
@@ -243,6 +245,7 @@ h2.section-title {
 .f3 { background: linear-gradient(135deg, #D1FAE5, #A7F3D0); }
 .f4 { background: linear-gradient(135deg, #FEF3C7, #FDE68A); }
 .f5 { background: linear-gradient(135deg, #EDE9FE, #DDD6FE); }
+.f6 { background: linear-gradient(135deg, #FDF2F8, #FBCFE8); }
 .feature-card h3 { font-size: 18px; font-weight: 800; color: var(--blue); margin-bottom: 8px; }
 .feature-card p { font-size: 13px; color: var(--gray); line-height: 1.5; }
 
